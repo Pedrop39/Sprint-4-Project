@@ -2,8 +2,8 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 import altair as alt
-
-vehicle_df = pd.read_csv('C:/Users/Perdo/Downloads/Project/Sprint-4-Project/vehicles_us.csv')
+github_raw_url = 'https://raw.githubusercontent.com/Pedrop39/Sprint-4-Project/main/vehicles_us.csv'
+vehicle_df = pd.read_csv(github_raw_url)
 
 st.header("Car Condition vs. Number of Cars")
 
