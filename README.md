@@ -26,10 +26,10 @@ To perform this analysis, we utilize the following Python libraries:
 1. Clone this repository from GitHub.
 2. Ensure you have Python and the mentioned libraries installed.
 3. Run the main file (e.g., `main.py`) in your local environment.
-4. Open your web browser and access the local address provided by Streamlit (usually `http://localhost:8501`).
+4. Open your web browser and access the local address provided y Streamlit (usually `http://localhost:8501`).
 
 ## Online Access
 
-You can also access the project online via Render.
+You can also access the project online via Render: https://sprint-4-project-h23r.onrender.com.
 
 Explore the data and enjoy analyzing the world of vehicles! 🚗🔍
