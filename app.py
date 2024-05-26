@@ -15,11 +15,19 @@ fig.update_layout(xaxis_title='Car Condition', yaxis_title='Number of Cars')
 # Display the chart
 st.plotly_chart(fig)
 
-st.header("Car Condition vs. Price")
+# Dropdown menu for selecting vehicle type
+selected_type = st.selectbox("Select a vehicle type", vehicle_df["type"].unique())
+
+# Filter dataframe based on selected type
+filtered_df = vehicle_df[vehicle_df["type"] == selected_type]
 
 # Create a scatter plot using Plotly Express
-fig = px.scatter(vehicle_df, x='condition', y='price', title='Car Condition vs. Price')
-fig.update_xaxes(categoryorder='total descending')  # Sort x-axis labels by total count
+fig = px.scatter(filtered_df, x="condition", y="price", color="make",
+                 title=f"{selected_type.capitalize()} Cars: Condition vs. Price",
+                 labels={"condition": "Car Condition", "price": "Price"})
+
+# Add interactive hover effects
+fig.update_traces(hovertemplate="<b>Condition:</b> %{x}<br><b>Price:</b> %{y:$,.0f}")
 
 # Display the chart
 st.plotly_chart(fig)
