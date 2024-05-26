@@ -25,7 +25,6 @@ filtered_df = vehicle_df[vehicle_df["type"] == selected_type]
 fig = px.histogram(filtered_df, x="condition", color,
                    title=f"{selected_type.capitalize()} Cars: Condition vs. Price",
                    labels={"condition": "Car Condition", "price": "Price"})
-
 # Add interactive hover effects
 fig.update_traces(hovertemplate="<b>Condition:</b> %{x}<br><b>Price:</b> %{y:$,.0f}<br><b>Color:</b> %{color}")
 
