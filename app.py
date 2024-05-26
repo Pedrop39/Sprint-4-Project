@@ -15,19 +15,19 @@ fig.update_layout(xaxis_title='Car Condition', yaxis_title='Number of Cars')
 # Display the chart
 st.plotly_chart(fig)
 
-# Dropdown menu for selecting vehicle type
+st.header("Cars: Condition vs. Price")
 selected_type = st.selectbox("Select a vehicle type", vehicle_df["type"].unique())
 
 # Filter dataframe based on selected type
 filtered_df = vehicle_df[vehicle_df["type"] == selected_type]
 
-# Create a scatter plot using Plotly Express
-fig = px.scatter(filtered_df, x="condition", y="price", color="paint_color",
-                 title=f"{selected_type.capitalize()} Cars: Condition vs. Price",
-                 labels={"condition": "Car Condition", "price": "Price"})
+# Create a histogram using Plotly Express
+fig = px.histogram(filtered_df, x="condition", color="paint_color",
+                   title=f"{selected_type.capitalize()} Cars: Condition vs. Price",
+                   labels={"condition": "Car Condition", "price": "Price"})
 
 # Add interactive hover effects
-fig.update_traces(hovertemplate="<b>Condition:</b> %{x}<br><b>Price:</b> %{y:$,.0f}")
+fig.update_traces(hovertemplate="<b>Condition:</b> %{x}<br><b>Price:</b> %{y:$,.0f}<br><b>Color:</b> %{color}")
 
 # Display the chart
 st.plotly_chart(fig)
