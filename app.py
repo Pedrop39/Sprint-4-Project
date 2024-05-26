@@ -34,12 +34,19 @@ vehicle_df['odometer'].fillna(median_odometer, inplace=True)
 mean_odometer_by_type = vehicle_df.groupby('type')['odometer'].mean()
 mean_odometer_by_type
 
+# Dropdown menu for selecting vehicle type
+selected_type = st.selectbox("Select a vehicle type", vehicle_df["type"].unique())
+
+# Filter dataframe based on selected type
+filtered_df = vehicle_df[vehicle_df["type"] == selected_type]
+
 # Checkbox to toggle plot type
 show_bar_chart = st.checkbox("Show Bar Chart")
 
 # Plotly Express bar chart or scatter plot
 if show_bar_chart:
-    fig = px.bar(mean_odometer_by_type, x='type', y='odometer', labels={'odometer': 'Mean Odometer Value'})
-    st.plotly_chart(fig)
+    fig = px.bar(filtered_df, x="type", y="odometer", labels={"odometer": "Mean Odometer Value"})
 else:
     st.write("Select the checkbox to show the bar chart.")
+
+st.plotly_chart(fig)
