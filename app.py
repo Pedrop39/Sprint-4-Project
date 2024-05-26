@@ -22,7 +22,7 @@ selected_type = st.selectbox("Select a vehicle type", vehicle_df["type"].unique(
 filtered_df = vehicle_df[vehicle_df["type"] == selected_type]
 
 # Create a histogram using Plotly Express
-fig = px.histogram(filtered_df, x="condition",
+fig = px.histogram(filtered_df, x="condition", color="model"
                    title=f"{selected_type.capitalize()} Cars: Condition vs. Price",
                    labels={"condition": "Car Condition", "price": "Price"})
 # Add interactive hover effects
