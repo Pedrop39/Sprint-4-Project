@@ -22,7 +22,7 @@ selected_type = st.selectbox("Select a vehicle type", vehicle_df["type"].unique(
 filtered_df = vehicle_df[vehicle_df["type"] == selected_type]
 
 # Create a scatter plot using Plotly Express
-fig = px.scatter(filtered_df, x="condition", y="price", color="make",
+fig = px.scatter(filtered_df, x="condition", y="price", color="paint_color",
                  title=f"{selected_type.capitalize()} Cars: Condition vs. Price",
                  labels={"condition": "Car Condition", "price": "Price"})
 
