@@ -1,4 +1,3 @@
-# Sprint-4-Project
 # Random Events Simulation Tool for Vehicles
 
 This project aims to explore the world of vehicles through data analysis. Below, we describe the key steps and the tools used:
